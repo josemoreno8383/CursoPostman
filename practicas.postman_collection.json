@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "87fbeaa7-6578-4a3b-ad7c-9be2a57eed5e",
+		"name": "practicas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get credencials",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var myNumeroAleatorio = Math.floor(Math.random()*110)+0\r",
+							"pm.environment.set(\"myNumeroAleatorio\", myNumeroAleatorio);\r",
+							"\r",
+							"//Ej de contraseñas aleatorias numeros y letras\r",
+							"//\r",
+							"var aux =Math.random().toString(36).substr(2,5)\r",
+							"console.log(aux)\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\": \"juan\",\r\n\"edadDesdeUnaVariablePre-request\": {{myNumeroAleatorio}},\r\n\"numeroAleatorioConFuncionDePostman\": {{$randomInt}},\r\n\"codigoAleatorioConFuncionDePostman\": \"{{$guid}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2getcreden",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var myNumeroAleatorio = Math.floor(Math.random()*110)+0\r",
+							"pm.environment.set(\"myNumeroAleatorio\", myNumeroAleatorio);\r",
+							"\r",
+							"//Ej de contraseñas aleatorias numeros y letras\r",
+							"//\r",
+							"var aux =Math.random().toString(36).substr(2,5)\r",
+							"console.log(aux)\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\": \"juan\",\r\n\"edadDesdeUnaVariablePre-request\": {{myNumeroAleatorio}},\r\n\"numeroAleatorioConFuncionDePostman\": {{$randomInt}},\r\n\"codigoAleatorioConFuncionDePostman\": \"{{$guid}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{postmanecho}}/post",
+					"host": [
+						"{{postmanecho}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
